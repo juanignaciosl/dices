@@ -1,0 +1,20 @@
+#!/usr/local/bin/python3
+
+import argparse
+import random
+
+parser = argparse.ArgumentParser(description='Throw some dices.')
+
+parser.add_argument('dices', metavar='N', type=int, help='number of dices to throw')
+parser.add_argument('-s', '--sides', dest='sides', type=int, default=6, help='sides of each dice (default: 6)')
+
+args = parser.parse_args()
+
+results = []
+for dice in range(0, args.dices):
+    results.append(random.randrange(1, args.sides))
+
+print(results, "\n")
+
+print("Max:", max(results))
+print("Total:", sum(results))
