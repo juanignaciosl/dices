@@ -10,9 +10,7 @@ parser.add_argument('-s', '--sides', dest='sides', type=int, default=6, help='si
 
 args = parser.parse_args()
 
-results = []
-for dice in range(0, args.dices):
-    results.append(random.randrange(1, args.sides))
+results = list(map(lambda i: random.randrange(1, args.sides), range(0, args.dices)))
 
 print(results, "\n")
 
